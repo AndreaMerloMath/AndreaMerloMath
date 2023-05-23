@@ -1,22 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Website</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-    <!-- MathJax script -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <!-- CSS Styles -->
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Publications - Andrea Merlo</title>
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- CSS Styles -->
+<style>
         body {
+counter-reset: theorem definition proposition lemma remark;
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
             padding-top: 70px; /* Space for the navbar */
-            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
         }
         .footer {
             position: fixed;
@@ -35,64 +33,947 @@
         .footer a:hover {
             color: #ddd;
         }
-        .half-size-image {
-            width: 50%;
-        }
 
-.custom-h2 {
-            font-size: 1.7em;  /* adjust as needed */
-        }
-  
+
+.theorem, .definition, .proposition, .lemma, .remark {
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.theorem {
+    background-color: #f9f9f9;
+}
+
+.theorem::before {
+    counter-increment: theorem;
+    content: "Theorem " counter(theorem) ". ";
+    font-weight: bold;
+}
+
+.definition {
+    background-color: #f0f8ff;
+}
+
+.definition::before {
+    counter-increment: definition;
+    content: "Definition " counter(definition) ". ";
+    font-weight: bold;
+}
+
+p, div {
+    display: inline;
+}
+
+
+.proposition {
+    background-color: #fafad2;
+}
+
+.proposition::before {
+    counter-increment: proposition;
+    content: "Proposition " counter(proposition) ". ";
+    font-weight: bold;
+}
+
+.lemma {
+    background-color: #e6e6fa;
+}
+
+.lemma::before {
+    counter-increment: lemma;
+    content: "Lemma " counter(lemma) ". ";
+    font-weight: bold;
+}
+
+.remark {
+    background-color: #fffacd;
+}
+
+.remark::before {
+    counter-increment: remark;
+    content: "Remark " counter(remark) ". ";
+    font-weight: bold;
+}
+
 
 
     </style>
 </head>
-
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item  active">
-                    <a class="nav-link" href="research.html">My Research</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="cv.html">My CV and Grants</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="publications.html">Publications</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-
-My main field of research is Geometric Measure Theory. I am most interested in the relationship between rectifiability, density and local structure of the measures. In the following paragraphs I will briefly summarize the subject of my work and the line of research I am following.
-
-<br>
-
-
-
-    <!-- Footer -->
-    <div class="footer">
-        <a href="https://arxiv.org/search/math?searchtype=author&query=Merlo%2C+A" target="_blank">Arxiv</a> |
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<a class="navbar-brand" href="#"></a>
+<button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNav" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="index.html">Home</a>
+</li>
+<li class="nav-item active">
+<a class="nav-link" href="research.html">My Research</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="cv.html">My CV and Grants</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="publications.html">Publications</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Publications Content -->
+<div class="container">
+<!-- Footer -->
+<header id="title-block-header">
+<h1 class="title">The Parabolic Density Problem</h1>
+</header><p>Rectifiablity is the central concept of Geometric Measure Theory.
+Although the modern formal definition was given by H. Federer in the 60s
+(see <span class="citation" data-cites="Federer1996GeometricTheory">[<a href="#ref-Federer1996GeometricTheory" role="doc-biblioref">1</a>]</span>) the idea of relaxing the notion of
+smooth surface to that of countable union of Lipschitz images was
+already present in the seminal works <span class="citation" data-cites="Besicovitch1 Besicovitch2 Besicovitch3">[<a href="#ref-Besicovitch1" role="doc-biblioref">2</a>–<a href="#ref-Besicovitch3" role="doc-biblioref">4</a>]</span> of A.
+Besicovitch. Henceforth, the characterization of rectifiability via both
+analytic and geometric properties has produced an extensive amount of
+research. We refer for instance to the books <span class="citation" data-cites="Federer1996GeometricTheory">[<a href="#ref-Federer1996GeometricTheory" role="doc-biblioref">1</a>]</span>, <span class="citation" data-cites="Mattila1995GeometrySpaces">[<a href="#ref-Mattila1995GeometrySpaces" role="doc-biblioref">5</a>]</span>, the recent survey <span class="citation" data-cites="Mattila_survey">[<a href="#ref-Mattila_survey" role="doc-biblioref">6</a>]</span>, and the
+references therein.</p><p>Since Besicovitch’s foundational works, one of the key problems of
+Geometric Measure Theory was to determine the geometric structure of
+measures with density, namely Radon measures <span class="math inline">\(\phi\)</span> on <span class="math inline">\(\mathbb{R}^n\)</span> such that the limit <span class="math display">\[\lim_{r\to 0}\frac{\phi(B(x,r))}{r^\alpha}
+    \label{BP}\]</span> exists positive and finite for some <span class="math inline">\(\alpha&gt;0\)</span> and for <span class="math inline">\(\phi\)</span>-almost every <span class="math inline">\(x\in \mathbb{R}^n\)</span>. This query, usually
+referred to as <em>the density problem</em>, has driven a lot of
+research during the 60s and 70s (see for instance <span class="citation" data-cites="marstrand mattila1975">[<a href="#ref-marstrand" role="doc-biblioref">7</a>, <a href="#ref-mattila1975" role="doc-biblioref">8</a>]</span>), and was finally solved in the
+celebrated D. Preiss’s work <span class="citation" data-cites="Preiss1987GeometryDensities">[<a href="#ref-Preiss1987GeometryDensities" role="doc-biblioref">9</a>]</span>. Its relevance is even broader, since
+it led the main contributors to its solution in <span class="math inline">\(\mathbb R^n\)</span>, namely A. Besicovitch, J.
+Marstrand, P. Mattila, and D. Preiss, to develop many of the tools,
+blowup analysis arguments, and results that became fundamental
+techniques in the study of local properties of measures.</p><p>The solution of the Euclidean density problem is summarised in the
+following theorem, which is commonly known as <em>Preiss’s
+rectifiability criterion.</em></p><div class="thmx">
+<p><span id="preiss" label="preiss"></span> Let <span class="math inline">\(\phi\)</span> be a Radon measure on <span class="math inline">\(\mathbb{R}^n\)</span> and let <span class="math inline">\(\alpha\geq 0\)</span>. The following statements
+are equivalent:</p>
+<ul>
+<li><p><span class="math inline">\(\alpha\in\{0,1,\ldots,n\}\)</span>,
+<span class="math inline">\(\phi\)</span> is absolutely continuous with
+respect to the Hausdorff measure <span class="math inline">\(\mathcal{H}^{\alpha}\)</span>, and <span class="math inline">\(\phi\)</span>-almost all of <span class="math inline">\(\mathbb{R}^n\)</span> can be covered with
+countably many Lipschitz images of <span class="math inline">\(\mathbb
+R^\alpha.\)</span></p></li>
+<li><p>The limit in <a data-reference="BP" data-reference-type="eqref" href="#BP">[BP]</a> exists positive and finite <span class="math inline">\(\phi\)</span>-almost everywhere, where <span class="math inline">\(B(x,r)\)</span> is the Euclidean ball of centre
+<span class="math inline">\(x\)</span> and radius <span class="math inline">\(r&gt;0\)</span>.</p></li>
+</ul>
+</div><p>As mentioned above, the proof of Theorem <a data-reference="preiss" data-reference-type="ref" href="#preiss">[preiss]</a> was a
+community effort. The case <span class="math inline">\(n=2\)</span> was
+completely solved by Besicovitch in <span class="citation" data-cites="Besicovitch1 Besicovitch2 Besicovitch3">[<a href="#ref-Besicovitch1" role="doc-biblioref">2</a>–<a href="#ref-Besicovitch3" role="doc-biblioref">4</a>]</span>. Marstrand
+proved in <span class="citation" data-cites="marstrand marstranddensity">[<a href="#ref-marstrand" role="doc-biblioref">7</a>, <a href="#ref-marstranddensity" role="doc-biblioref">10</a>]</span> that if <a data-reference="BP" data-reference-type="eqref" href="#BP">[BP]</a> exists positive
+and finite in an arbitrary dimension <span class="math inline">\(n\)</span>, then <span class="math inline">\(\alpha\)</span> has to be an integer. He further
+showed that Theorem <a data-reference="preiss" data-reference-type="ref" href="#preiss">[preiss]</a> holds for <span class="math inline">\(n=3\)</span> and <span class="math inline">\(\alpha=2\)</span>. Ten years later, Mattila proved
+in <span class="citation" data-cites="mattila1975">[<a href="#ref-mattila1975" role="doc-biblioref">8</a>]</span> that if <span class="math inline">\(E\subset \mathbb R^n\)</span> is measurable, <span class="math inline">\(\phi=\mathcal{H}^\alpha\llcorner E\)</span>, and
+the limit in <a data-reference="BP" data-reference-type="eqref" href="#BP">[BP]</a> equals <span class="math inline">\(1\)</span> <span class="math inline">\(\mathcal{H}^\alpha\llcorner E\)</span>-almost
+everywhere, then <span class="math inline">\(E\)</span> must be
+rectifiable. See also <span class="citation" data-cites="julia_merlo_2023">[<a href="#ref-julia_merlo_2023" role="doc-biblioref">11</a>]</span>. In order to achieve this result,
+Mattila obtained in full generality another keystone of Geometric
+Measure Theory which is often referred to as <em>Marstrand-Mattila
+rectifiability criterion</em> and allows one to infer the global
+property of rectifiability of a measure from a pointwise information
+which involves proper flatness conditions. We refer the reader to <span class="citation" data-cites="DeLellis2008RectifiableMeasures">[<a href="#ref-DeLellis2008RectifiableMeasures" role="doc-biblioref">12</a>]</span> for more details and a proof.
+Finally, Preiss’s contribution to Theorem <a data-reference="preiss" data-reference-type="ref" href="#preiss">[preiss]</a> was to
+find a way to link the information given by the existence of <a data-reference="BP" data-reference-type="eqref" href="#BP">[BP]</a> to
+the local regularity and flatness of the measure <span class="math inline">\(\phi\)</span>. The importance of <span class="citation" data-cites="Preiss1987GeometryDensities">[<a href="#ref-Preiss1987GeometryDensities" role="doc-biblioref">9</a>]</span> further stems from the fundamental
+techniques which were introduced there, such as the theory of
+<em>tangent measures</em>. These methods played a crucial role also in
+many modern applications such as the study of harmonic measure in <span class="citation" data-cites="KPT Badger AMT_CPAM AMTV Azzam_Mourgoglou">[<a href="#ref-KPT" role="doc-biblioref">13</a>–<a href="#ref-Azzam_Mourgoglou" role="doc-biblioref">17</a>]</span>.</p><p>Because of the wide range of possible applications in the theory of
+optimal transport and PDEs, the last twenty years have witnessed a
+remarkable surge in interest for an extension of the results of
+Geometric Measure Theory in the context of metric spaces. For some
+relevant examples we refer to <span class="citation" data-cites="Ambrosio2000RectifiableSpaces metriccurrents kirchharea cheeger">[<a href="#ref-Ambrosio2000RectifiableSpaces" role="doc-biblioref">18</a>–<a href="#ref-cheeger" role="doc-biblioref">21</a>]</span>. A family of
+metric spaces which has received a special attention are <em>Carnot
+groups</em>, namely simply connected nilpotent Lie group whose Lie
+algebra is stratified and generated by its first layer (see for instance
+<span class="citation" data-cites="SerraCassano_notes_2016">[<a href="#ref-SerraCassano_notes_2016" role="doc-biblioref">22</a>]</span>). Their main relevance is twofold:
+first, they are infinitesimal models of geodesic metric spaces (see
+<span class="citation" data-cites="carnottangenti">[<a href="#ref-carnottangenti" role="doc-biblioref">23</a>]</span>) and,
+secondly, all non-commutative Carnot groups are <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span>-codimensional purely unrectifiable
+metric spaces, in the sense that they do not contain Lipschitz images of
+codimension <span class="math inline">\(1\)</span> or <span class="math inline">\(2\)</span>. For the latter reason it is apparent
+that if one wants to extend the geometric techniques to these settings,
+at least in codimension <span class="math inline">\(1\)</span>, the
+classical theory is of no help.</p><p>A significant step toward a better understanding of rectifiability in
+Carnot groups was made in the early 2000’s by B. Franchi, R. Serapioni,
+and F. Serra Cassano, who introduced in <span class="citation" data-cites="FSSC01">[<a href="#ref-FSSC01" role="doc-biblioref">24</a>]</span> an intrinsic notion of
+rectifiability in the Heisenberg group and achieved an analogue of De
+Giorgi’s rectifiability theorem. In particular, they formulated it in
+terms of so-called <span class="math inline">\(\mathcal C^1_{\mathbb
+H}\)</span>-regular surface (see <span class="citation" data-cites="FSSC01">[<a href="#ref-FSSC01" role="doc-biblioref">24</a>,
+Definition 6.1]</span>), which admit an associated Implicit Function
+Theorem (see <span class="citation" data-cites="FSSC01">[<a href="#ref-FSSC01" role="doc-biblioref">24</a>, Theorem 6.5]</span>).
+The first named author has recently proved in <span class="citation" data-cites="MerloG1cod">[<a href="#ref-MerloG1cod" role="doc-biblioref">25</a>]</span> and <span class="citation" data-cites="MerloMM">[<a href="#ref-MerloMM" role="doc-biblioref">26</a>]</span> that <span class="math inline">\(\mathcal C^1_{\mathbb H}\)</span>-rectifiability
+is indeed the correct framework to provide the first non-Euclidean
+analogue of Preiss’s theorem. His result was attained for
+1-codimensional measures in <span class="math inline">\(\mathbb
+H^n\)</span>. Motivated by <span class="citation" data-cites="MerloMM">[<a href="#ref-MerloMM" role="doc-biblioref">26</a>]</span>, he has also formulated a notion of
+<span class="math inline">\(\mathcal P^*\)</span>-rectifiability (resp.
+<span class="math inline">\(\mathcal P\)</span>-rectifiability) in
+general Carnot groups which is based on the almost everywhere flatness
+(resp. flatness ) of tangent measures, which he further investigated in
+collaboration with G. Antonelli in <span class="citation" data-cites="antonelli2022rectifiable">[<a href="#ref-antonelli2022rectifiable" role="doc-biblioref">27</a>]</span>, <span class="citation" data-cites="MR4342997">[<a href="#ref-MR4342997" role="doc-biblioref">28</a>]</span>, and <span class="citation" data-cites="MerloAntonelli">[<a href="#ref-MerloAntonelli" role="doc-biblioref">29</a>]</span>. As a consequence of the works <span class="citation" data-cites="antonelli2022rectifiable">[<a href="#ref-antonelli2022rectifiable" role="doc-biblioref">27</a>]</span>, <span class="citation" data-cites="Chousionis2015MarstrandsGroup">[<a href="#ref-Chousionis2015MarstrandsGroup" role="doc-biblioref">30</a>]</span>, <span class="citation" data-cites="ChousionisONGROUP">[<a href="#ref-ChousionisONGROUP" role="doc-biblioref">31</a>]</span>, <span class="citation" data-cites="MerloG1cod">[<a href="#ref-MerloG1cod" role="doc-biblioref">25</a>]</span>, <span class="citation" data-cites="MerloMM">[<a href="#ref-MerloMM" role="doc-biblioref">26</a>]</span> of G. Antonelli, V. Chousionis, V.
+Magnani, J. Tyson, and the first named author, Preiss’s density theorem
+is also known to hold in <span class="math inline">\(\mathbb
+H^1\)</span> for higher codimensional measures. For a statement and a
+more detailed discussion we refer to the introduction of <span class="citation" data-cites="antonelli2022rectifiable">[<a href="#ref-antonelli2022rectifiable" role="doc-biblioref">27</a>]</span>.</p><p>In Euclidean spaces, the different characterizations of (uniformly)
+rectifiable measures provide multiple equivalent definitions that can be
+used to solve a wide range of deep problems in PDEs, harmonic analysis,
+and calculus of variations. However, in the parabolic setting, there has
+been a much more limited progress on developing equivalent
+characterizations of rectifiability. As a result, there is a substantial
+lack of flexibility in applying geometric measure theory to parabolic
+problems.</p><p>Our work aims to address this issue by providing the first equivalent
+characterization of rectifiability in parabolic spaces. The ultimate
+goal is to relate qualitative and quantitative definitions in the
+spirit, just to mention a few examples, of <span class="citation" data-cites="zbMATH06521333 zbMATH06465116 zbMATH06551590 zbMATH07269829">[<a href="#ref-zbMATH06521333" role="doc-biblioref">32</a>–<a href="#ref-zbMATH07269829" role="doc-biblioref">35</a>]</span>.
+Specifically, we investigate the relationship between the
+<em>densities</em>, <em>tangents</em>, and <em>regularity</em> of
+measures in the non-Euclidean setting of parabolic spaces <span class="math inline">\(\mathbb{P}^n\)</span> (see §<a data-reference="parabgroup" data-reference-type="ref" href="#parabgroup">[parabgroup]</a>
+for the definition), with the goal of solving the density problem for
+<span class="math inline">\(1\)</span>-codimensional measures on <span class="math inline">\(\mathbb{P}^n\)</span>. Throughout our
+investigation, we also develop several fundamental tools in Geometric
+Measure Theory adapted to the parabolic space.</p><p>Furthermore, we provide the first equivalent characterization of
+parabolic rectifiability and try to bridge the qualitative and
+quantitative definitions. In particular, we investigate the relationship
+between <em>densities</em>, <em>tangents</em>, and <em>regularity</em>
+of measures in <em>parabolic spaces</em> <span class="math inline">\(\mathbb{P}^n\)</span> (see §<a data-reference="parabgroup" data-reference-type="ref" href="#parabgroup">[parabgroup]</a>
+for the definition), to solve the density problem.</p><p>Before delving into the explanation of our contributions to the
+matter, we give a short account of what has been done so far in the
+parabolic spaces. Motivated by the study the heat equation on
+time-varying domains, S. Hofmann, J. Lewis, and K. Nyström introduced in
+<span class="citation" data-cites="HLN_AASFM">[<a href="#ref-HLN_AASFM" role="doc-biblioref">36</a>]</span> and <span class="citation" data-cites="HLN_Duke">[<a href="#ref-HLN_Duke" role="doc-biblioref">37</a>]</span> a definition of <em>quantitative
+(uniform) <span class="math inline">\((n+1)\)</span>-rectifiability</em>
+in the parabolic space, which is inspired by the works of David and
+Semmes’ in the Euclidean case (see <span class="citation" data-cites="DavidSemmes_asterisque">[<a href="#ref-DavidSemmes_asterisque" role="doc-biblioref">38</a>]</span>
+and <span class="citation" data-cites="DavidSemmes">[<a href="#ref-DavidSemmes" role="doc-biblioref">39</a>]</span>). Its
+investigation constitutes an active field of research (see <span class="citation" data-cites="BHHLN1 BHHLN2 BHHLN3">[<a href="#ref-BHHLN1" role="doc-biblioref">40</a>–<a href="#ref-BHHLN3" role="doc-biblioref">42</a>]</span>). We also mention that the need of a
+better understanding of qualitative parabolic rectifiability arises also
+from other recent studies beyond geometry. Parabolic tangent measures
+and some of the techniques of <span class="citation" data-cites="Preiss1987GeometryDensities">[<a href="#ref-Preiss1987GeometryDensities" role="doc-biblioref">9</a>]</span> have been implemented in the study of
+non-variational two-phase problems for caloric measure by the second and
+third named author in <span class="citation" data-cites="Mourgoglou_Puliatti">[<a href="#ref-Mourgoglou_Puliatti" role="doc-biblioref">43</a>]</span>. Moreover, J. Mateu, L. Prat, and X.
+Tolsa investigated in <span class="citation" data-cites="Mateu_Prat_Tolsa">[<a href="#ref-Mateu_Prat_Tolsa" role="doc-biblioref">44</a>]</span> a parabolic Lipschitz-harmonic
+capacity in the context of removability for Lipschitz caloric
+functions.</p><p>We now proceed with a description of the content of the paper and its
+connection with the existing literature. As mentioned above, the main
+subject is the density problem in <span class="math inline">\(\mathbb{P}^n\)</span>, which we solve in
+codimension <span class="math inline">\(1\)</span>.</p><div class="theorem">
+<p><span id="theorem:main_theorem_Preiss" label="theorem:main_theorem_Preiss"></span> Suppose that <span class="math inline">\(\phi\)</span> is a Radon measure on <span class="math inline">\(\mathbb{P}^n\)</span>. Then, the following are
+equivalent:</p>
+<ul>
+<li><p><span class="math inline">\(\phi\)</span> is absolutely
+continuous with respect to <span class="math inline">\(\mathcal{H}^{n+1}\)</span> and it is <span class="math inline">\(\mathscr{P}_{n+1}\)</span>-rectifiable in the
+sense of Definition <a data-reference="def:PhRectifiableMeasure" data-reference-type="ref" href="#def:PhRectifiableMeasure">[def:PhRectifiableMeasure]</a>.
+In other words, there are countably many compact sets <span class="math inline">\(K_i\subseteq \mathcal{V}\)</span> and Lipschitz
+maps <span class="math inline">\(g_i\colon K_i\to \mathbb{R}\)</span>
+with the Rademacher property (see Definition <a data-reference="def:Rademacher_property" data-reference-type="ref" href="#def:Rademacher_property">[def:Rademacher_property]</a>)
+such that <span class="math display">\[\phi\Bigl(\mathbb{P}^n\setminus
+\bigcup_{i\in\mathbb{N}} g_i(K_i)\Bigr)=0.\]</span></p></li>
+<li><p><span class="math inline">\(\phi\)</span> is absolutely
+continuous with respect to <span class="math inline">\(\mathcal{H}^{n+1}\)</span> and it is concentrated
+on a <span class="math inline">\(1\)</span>-codimensional LG-rectifiable
+set.</p></li>
+<li><p>For <span class="math inline">\(\phi\)</span>-almost every <span class="math inline">\(x\in\mathbb{P}^n\)</span> we have <span class="math display">\[0&lt;\lim_{r\to
+0}\frac{\phi(B(x,r))}{r^{n+1}}&lt;\infty,\]</span> where <span class="math inline">\(B(x,r)\)</span> is the ball relative to the
+Koranyi metric (see <a data-reference="eq:Korany_metric" data-reference-type="eqref" href="#eq:Korany_metric">[eq:Korany_metric]</a>).</p></li>
+</ul>
+</div><p>In <span class="citation" data-cites="MatParRect">[<a href="#ref-MatParRect" role="doc-biblioref">45</a>]</span>, P. Mattila
+introduced the notion of <em>LG-rectifiabile set</em> in the spirit of
+Federer’s definition (see Definition <a data-reference="def:LGrect" data-reference-type="ref" href="#def:LGrect">[def:LGrect]</a>),
+which allowed him to provide the analogues of the classical
+rectifiability and structural results for such sets. It is easily seen
+that LG-rectifiability is equivalent to item (i) of the theorem above.
+Theorem <a data-reference="theorem:main_theorem_Preiss" data-reference-type="ref" href="#theorem:main_theorem_Preiss">[theorem:main_theorem_Preiss]</a>
+is a parabolic analogue of Theorem <a data-reference="preiss" data-reference-type="ref" href="#preiss">[preiss]</a> and of
+<span class="citation" data-cites="MerloG1cod">[<a href="#ref-MerloG1cod" role="doc-biblioref">25</a>, Theorem 1.3]</span>;
+we show that Mattila’s notion of LG-rectifiability is precisely the one
+which solves the <span class="math inline">\(1\)</span>-codimensional
+density problem in <span class="math inline">\(\mathbb{P}^n\)</span> for
+the Koranyi metric. This is quite remarkable both from the theoretical
+point of view, as it provides a <em>metric</em> reason why the notion of
+LG-rectifiability is natural and, on the other hand, together with
+results like <span class="citation" data-cites="MatParRect">[<a href="#ref-MatParRect" role="doc-biblioref">45</a>, Example 8.2]</span>,
+it highlights a contrast between the notion of parabolic uniform
+rectifiability and the geometry of the parabolic space. We shall discuss
+the latter issue in detail below. This completely solves, in the case of
+codimension <span class="math inline">\(1\)</span>, the question posed
+by Mattila in <span class="citation" data-cites="MatParRect">[<a href="#ref-MatParRect" role="doc-biblioref">45</a>]</span> as to whether
+an analogue of Preiss’s theorem can hold in <span class="math inline">\(\mathbb{P}^n\)</span>.</p><p>It is legitimate to ask whether Theorem <a data-reference="theorem:main_theorem_Preiss" data-reference-type="ref" href="#theorem:main_theorem_Preiss">[theorem:main_theorem_Preiss]</a>
+keeps being true if we replace the Koranyi norm with a bi-Lipschitz
+equivalent one. The next result shows that the solution to the density
+problem in the parabolic space is extremely sensitive to the change of
+norms. Indeed, in Appendix <a data-reference="section:counterexample_PDT" data-reference-type="ref" href="#section:counterexample_PDT">[section:counterexample_PDT]</a>
+we provide a <em>counterexample to the parabolic Preiss’s density
+theorem</em> with an alternative metric.</p><div class="theorem">
+<p><span id="th:failurepreiss" label="th:failurepreiss"></span> Endow
+the parabolic group <span class="math inline">\(\mathbb{P}^1\)</span>
+with the metric induced by the norm <a class="footnote-ref" href="#fn1" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span class="math display">\[\|x\|_\infty \mathrm{:=} \max\{|x_H|,
+|x_T|^{1/2}\} \qquad \text{ for }\quad x=(x_H,x_T)\in \mathbb{R}\times
+\mathbb{R}
+    \label{infinitynorm}\]</span> and let <span class="math inline">\(\mathfrak B_\infty(x,r)\)</span> denote the ball
+relative to <a data-reference="infinitynorm" data-reference-type="eqref" href="#infinitynorm">[infinitynorm]</a>. Then, there exists a
+Radon measure <span class="math inline">\(\nu\)</span> on <span class="math inline">\(\mathbb{P}^1\)</span> which satisfies <span class="math display">\[\nu(\mathfrak B_\infty(x,r))=r^2\qquad \text{for
+any $x\in\mathrm{supp}(\nu)$ and any $r&gt;0$}\]</span> and such that
+the set of Preiss’s tangent measures <span class="math inline">\(\mathrm{Tan}_2(\nu,x)\)</span> (see Definition <a data-reference="def:TangentMeasure" data-reference-type="ref" href="#def:TangentMeasure">[def:TangentMeasure]</a>) for <span class="math inline">\(\nu\)</span>-almost every <span class="math inline">\(x\in\mathbb{P}^1\)</span> <span>never
+contains</span> the Haar measure of the vertical line <span class="math inline">\(\mathcal V\mathrm{:=}
+\{(0,s):s\in\mathbb{R}\}\)</span>.</p>
+</div><p>It is not hard to show that <span class="math inline">\(\mathcal
+V\)</span> is the only <span class="math inline">\(2\)</span>-dimensional homogeneous subgroup of
+<span class="math inline">\(\mathbb{P}^1\)</span> (see Corollary <a data-reference="corollary:grn1" data-reference-type="ref" href="#corollary:grn1">[corollary:grn1]</a>). Thus, Theorem <a data-reference="th:failurepreiss" data-reference-type="ref" href="#th:failurepreiss">[th:failurepreiss]</a> proves the
+existence of a Radon measure having <span class="math inline">\(2\)</span>-dimensional density with respect to the
+standard parabolic cylinder <span class="math inline">\(\mathfrak
+B_\infty(x,r)\)</span> such that <span class="math inline">\(\nu\)</span> never resembles a flat parabolic
+surface at any scale and at <span class="math inline">\(\nu\)</span>-almost every point of <span class="math inline">\(\mathbb{P}^1\)</span>. Together with Theorem <a data-reference="theorem:main_theorem_Preiss" data-reference-type="ref" href="#theorem:main_theorem_Preiss">[theorem:main_theorem_Preiss]</a>,
+the above results also prove that <span class="math inline">\(\mathbb{P}^n\)</span> is a metric space for which
+two bi-Lipschitz equivalent metrics give different solutions to the
+density problem, and, to our knowledge, this is the first instance where
+such a phenomenon has ever been observed. We also mention that Theorem
+<a data-reference="th:failurepreiss" data-reference-type="ref" href="#th:failurepreiss">[th:failurepreiss]</a> shows one of
+the reasons why it is so difficult to prove rectifiability criteria in
+the spirit of Theorem <a data-reference="preiss" data-reference-type="ref" href="#preiss">[preiss]</a>: the class of measures for which
+the density exists <em>depends on the metric</em>, so all the arguments
+must heavily rely on the shape of the ball. Let us highlight that
+Theorem <a data-reference="th:failurepreiss" data-reference-type="ref" href="#th:failurepreiss">[th:failurepreiss]</a> shows a new
+phenomenon. Indeed, even in <span class="math inline">\(\ell^3_\infty\)</span> A. Lorent showed in <span class="citation" data-cites="LORENT2003RECTIFIABILITYDENSITY">[<a href="#ref-LORENT2003RECTIFIABILITYDENSITY" role="doc-biblioref">46</a>]</span> that <span class="math inline">\(2\)</span>-dimensional uniform measures are
+rectifiable. However, in <span class="math inline">\(\ell^3_\infty\)</span> it is still open if
+Preiss’s rectifiability theorem extends in codimension <span class="math inline">\(1\)</span>.</p><p>Let us discuss the strategy of the proof of Theorem <a data-reference="theorem:main_theorem_Preiss" data-reference-type="ref" href="#theorem:main_theorem_Preiss">[theorem:main_theorem_Preiss]</a>,
+which can be divided into two main steps. The first is to obtain an
+analogue of Marstrand-Mattila rectifiability criterion in <span class="math inline">\(\mathbb{P}^n\)</span>, which holds for general
+homogeneous (with respect to parabolic dilations, see <a data-reference="eq:homogeous_metric" data-reference-type="eqref" href="#eq:homogeous_metric">[eq:homogeous_metric]</a>) and
+translation-invariant metrics. This links the local structure of a
+measure to its global regularity properties. We further remark that this
+type of results is extremely useful in applications since, instead of
+having to check a strong rigidity like the uniqueness and flatness of
+the blowups, it is sufficient to prove that, locally, the measure is
+geometrically flat although at different scales its tangent might
+rotate.</p><div class="theorem">
+<p><span id="thm:MMconormale:intro" label="thm:MMconormale:intro"></span> Let <span class="math inline">\(\mathfrak d\)</span> be a homogeneous metric on
+<span class="math inline">\(\mathbb P^n\)</span> which is invariant
+under translations, see <a data-reference="eq:homogeous_metric" data-reference-type="eqref" href="#eq:homogeous_metric">[eq:homogeous_metric]</a> and <a data-reference="eq:transl_inv_d" data-reference-type="eqref" href="#eq:transl_inv_d">[eq:transl_inv_d]</a>. Let <span class="math inline">\(\phi\)</span> be a Radon measure on <span class="math inline">\((\mathbb{P}^{n}, \mathfrak d)\)</span> such
+that:</p>
+<ul>
+<li><p>There exists <span class="math inline">\(h\in\{0,\ldots,n+2\}\)</span> such that for <span class="math inline">\(\phi\)</span>-almost every <span class="math inline">\(x\in \mathbb{P}^n\)</span> we have <span class="math display">\[0&lt;
+    % \Theta^h_*(\phi,x)\mathrm{:=}
+    \liminf_{r\to 0}\frac{\phi(B_{\mathfrak
+d}(x,r))}{r^{h}}\leq\limsup_{r\to 0}\frac{\phi(B_{\mathfrak
+d}(x,r))}{r^{h}},
+    % \eqqcolon \Theta^{h,*}(\phi,x)
+    &lt;\infty,\]</span> where <span class="math inline">\(B_{\mathfrak
+d}(x,r)\mathrm{:=} \{y\in \mathbb P^n:\mathfrak d(x,y)\leq
+r\}\)</span>.</p></li>
+<li><p>For <span class="math inline">\(\phi\)</span>-almost every <span class="math inline">\(x\in \mathbb{P}^n\)</span> the elements of <span class="math inline">\(\mathrm{Tan}_h(\phi,x)\)</span> contained in the
+family of <span class="math inline">\(h\)</span>-dimensional flat
+measures <span class="math inline">\(\mathfrak{M}(h)\)</span>, namely
+the family of Haar measures relative to <span class="math inline">\(h\)</span>-dimensional homogeneous subgroups of
+<span class="math inline">\(\mathbb{P}^n\)</span>.</p></li>
+</ul>
+<p>Then there are countably many <span class="math inline">\(h\)</span>-dimensional homogeneous subgroups <span class="math inline">\(W_i\)</span> of <span class="math inline">\(\mathbb{P}^n\)</span>, compact sets <span class="math inline">\(K_i\subset   W_i\)</span>, and differentiable
+Lipschitz maps <span class="math inline">\(f_i\colon K_i\to
+\mathbb{P}^n\)</span> such that <span class="math display">\[\phi\Bigl(\mathbb{P}^n\setminus
+\bigcup_{i\in\mathbb{N}} f_i(K_i)\Bigr)=0.\]</span></p>
+</div><p>With the above theorem in hand, in Proposition <a data-reference="preiss1" data-reference-type="ref" href="#preiss1">[preiss1]</a> we
+prove Theorem <a data-reference="theorem:main_theorem_Preiss" data-reference-type="ref" href="#theorem:main_theorem_Preiss">[theorem:main_theorem_Preiss]</a>
+in the case <span class="math inline">\(n=1\)</span>. Theorem <a data-reference="thm:MMconormale:intro" data-reference-type="ref" href="#thm:MMconormale:intro">[thm:MMconormale:intro]</a> tells
+us that if a measure has dimension <span class="math inline">\(h\)</span>, which is item (i), and it is well
+approximated by planes at small scales, which is item (ii), then it
+essentially is the surface measure of a differentiable Lipschitz graph
+of dimension <span class="math inline">\(h\)</span>. We shall remark,
+however, that in the statement of Theorem <a data-reference="thm:MMconormale:intro" data-reference-type="ref" href="#thm:MMconormale:intro">[thm:MMconormale:intro]</a> we
+allow the plane which approximates the measure to possibly change at
+different scales, in a similar fashion to what happens at the centre of
+an exponential spiral. Hence, to prove rectifiability with such weak
+hypotheses is significantly harder than in presence of a unique blowup,
+which is commonly referred to as the characterisation in terms of
+approximate tangent plane (see <span class="citation" data-cites="Federer1996GeometricTheory">[<a href="#ref-Federer1996GeometricTheory" role="doc-biblioref">1</a>]</span>).</p><p>The first step to achieve Theorem <a data-reference="thm:MMconormale:intro" data-reference-type="ref" href="#thm:MMconormale:intro">[thm:MMconormale:intro]</a> is to
+show that items (i) and (ii) imply that <span class="math inline">\(\mathbb{P}^n\)</span> can be covered <span class="math inline">\(\phi\)</span>-almost all by countably many
+Lipschitz images of compact subsets of an <span class="math inline">\(h\)</span>-dimensional homogeneous subgroup of
+<span class="math inline">\(\mathbb{P}^n\)</span>. To do this, we use
+techniques analogous to those that Federer developed to obtain his
+celebrated projection theorem (see <span class="citation" data-cites="Federer_TAMS_1947">[<a href="#ref-Federer_TAMS_1947" role="doc-biblioref">47</a>]</span>). In order to prove that the
+Lipschitz graphs <span class="math inline">\(\Gamma_i\)</span>
+previously constructed are differentiable, we show that the locality of
+tangent measures given by Proposition <a data-reference="tuttitg" data-reference-type="ref" href="#tuttitg">[tuttitg]</a> yields
+that the tangents relative to the natural surface measures of <span class="math inline">\(\Gamma_i\)</span> are flat almost everywhere. The
+proof that such blowup is unique is a (much) more delicate version of
+the uniqueness of the differential (see Proposition <a data-reference="mm0.0" data-reference-type="ref" href="#mm0.0">[mm0.0]</a>).</p><p><strong>If not specified, throughout the rest of this introductory
+section we always understand that <span class="math inline">\(\mathbb{P}^n\)</span> is endowed with the Koranyi
+metric.</strong></p><p>The second step to prove Theorem <a data-reference="theorem:main_theorem_Preiss" data-reference-type="ref" href="#theorem:main_theorem_Preiss">[theorem:main_theorem_Preiss]</a>
+also in the case <span class="math inline">\(n&gt;1\)</span> can be
+summarized with the following crucial result, which shows that a measure
+in the parabolic space with <span class="math inline">\(1\)</span>-codimensional density has flat tangents
+almost everywhere.</p><div class="theorem">
+<p><span id="preissprabolicointrovero" label="preissprabolicointrovero"></span> Suppose that <span class="math inline">\(\phi\)</span> is a Radon measure on <span class="math inline">\(\mathbb P^n\)</span> such that <span class="math display">\[0&lt;\lim_{r\to
+0}\frac{\phi(B(x,r))}{r^{n+1}}&lt;\infty,\qquad\text{for $\phi$-almost
+every $x\in\mathbb{P}^n$. }
+\label{eq:BPdensity}\]</span> Then item (ii) in Theorem <a data-reference="thm:MMconormale:intro" data-reference-type="ref" href="#thm:MMconormale:intro">[thm:MMconormale:intro]</a> holds
+true.</p>
+</div><p>To prove that (iii) implies (i) in Theorem <a data-reference="theorem:main_theorem_Preiss" data-reference-type="ref" href="#theorem:main_theorem_Preiss">[theorem:main_theorem_Preiss]</a>
+it is enough to combine Theorems <a data-reference="thm:MMconormale:intro" data-reference-type="ref" href="#thm:MMconormale:intro">[thm:MMconormale:intro]</a> and
+<a data-reference="preissprabolicointrovero" data-reference-type="ref" href="#preissprabolicointrovero">[preissprabolicointrovero]</a>,
+while the other implications follow almost immediately from Mattila’s
+work <span class="citation" data-cites="MatParRect">[<a href="#ref-MatParRect" role="doc-biblioref">45</a>]</span>. Theorem <a data-reference="preissprabolicointrovero" data-reference-type="ref" href="#preissprabolicointrovero">[preissprabolicointrovero]</a>
+is the technical core of the paper and the results employed in its proof
+have several by-products, as we detail below. The main idea of its proof
+is to exploit the weak* connectedness of <span class="math inline">\(\mathrm{Tan}_{n+1}(\mu,x)\)</span> and show the
+following result.</p><p>Let us recall that a Radon measures <span class="math inline">\(\nu\)</span> on <span class="math inline">\(\mathbb{P}^n\)</span> is called <span class="math inline">\((n+1)\)</span>-<em>uniform</em> if <span class="math inline">\(\nu(B(x,r))=r^{n+1}\)</span> for any <span class="math inline">\(x\in\mathrm{supp}(\nu)\)</span> and any <span class="math inline">\(r&gt;0\)</span>.</p><div class="theorem">
+<p><span id="th:disconnection:intro" label="th:disconnection:intro"></span> Let <span class="math inline">\(\phi\)</span> be a Radon measure on <span class="math inline">\(\mathbb P^n\)</span> such that <span class="math display">\[0&lt;\lim_{r\to
+0}\frac{\phi(B(x,r))}{r^{n+1}}&lt;\infty\qquad  \text{for $\phi$-almost
+every $x\in\mathbb{P}^n$}.\]</span> Suppose further that</p>
+<ul>
+<li><p>there exist a weak* continuous functional <span class="math inline">\(\mathscr{F}\)</span> on the space of Radon
+measures and a constant <span class="math inline">\(\varepsilon&gt;0\)</span> depending only on <span class="math inline">\(n\)</span> such that, if <span class="math inline">\(\mu\)</span> is an <span class="math inline">\((n+1)\)</span>-uniform measure on <span class="math inline">\(\mathbb P^n\)</span> and <span class="math inline">\(\mathscr{F}(\nu)\leq\varepsilon\)</span> for some
+tangent at infinity <span class="math inline">\(\nu\)</span> of <span class="math inline">\(\mu\)</span> (see Definition <a data-reference="def:blowdowns" data-reference-type="ref" href="#def:blowdowns">[def:blowdowns]</a>), then <span class="math inline">\(\mu\)</span> is flat.</p></li>
+</ul>
+<p>Then item (ii) in Theorem <a data-reference="thm:MMconormale:intro" data-reference-type="ref" href="#thm:MMconormale:intro">[thm:MMconormale:intro]</a> holds
+true.</p>
+</div><p>It is easy to see that if a measure satisfies <a data-reference="eq:BPdensity" data-reference-type="eqref" href="#eq:BPdensity">[eq:BPdensity]</a>, then its tangent
+measures are uniform at <span class="math inline">\(\phi\)</span>-almost
+every point. This information is not sufficient to conclude a priori
+that <a data-reference="eq:BPdensity" data-reference-type="eqref" href="#eq:BPdensity">[eq:BPdensity]</a> implies the flatness of
+blowups. Indeed, it is very well known that there are uniform measures
+in <span class="math inline">\(\mathbb{R}^n\)</span> which are not flat
+(see for instance <span class="citation" data-cites="Kowalski1986Besicovitch-typeSubmanifolds">[<a href="#ref-Kowalski1986Besicovitch-typeSubmanifolds" role="doc-biblioref">48</a>]</span> and <span class="citation" data-cites="nimer">[<a href="#ref-nimer" role="doc-biblioref">49</a>]</span>) so the proof of Theorem <a data-reference="preissprabolicointrovero" data-reference-type="ref" href="#preissprabolicointrovero">[preissprabolicointrovero]</a>
+requires a finer understanding of the geometric structure of uniform
+measures.</p><p>Condition (<strong>P</strong>) should be interpreted as the property
+that the class of <span class="math inline">\(1\)</span>-codimensional
+uniform measures can be split into flat and non-flat measures, and those
+two families are weak* disconnected. Moreover, the fact that <span class="math inline">\(\mathrm{Tan}_{n+1}(\phi,x)\)</span> is weak*
+connected for <span class="math inline">\(\phi\)</span>-almost every
+<span class="math inline">\(x\in\mathbb P^n\)</span> implies that either
+the measures in <span class="math inline">\(\mathrm{Tan}_{n+1}(\phi,x)\)</span> are flat or
+<span class="math inline">\(\mathrm{Tan}_{n+1}(\phi,x)\)</span> is
+contained in the set of non-flat uniform measures <span class="math inline">\(\phi\)</span>-almost everywhere. However, since
+uniform measures are surface measures of <span class="math inline">\(1\)</span>-codimensional analytic varieties in
+<span class="math inline">\(\mathbb{R}^{n+1}\)</span> and thanks to the
+fact that the tangent measures of a tangent measure are themselves
+tangent measures by Proposition <a data-reference="tuttitg" data-reference-type="ref" href="#tuttitg">[tuttitg]</a>, we
+infer that <span class="math inline">\(\mathrm{Tan}_{n+1}(\phi,x)\)</span> contains a
+flat measure for <span class="math inline">\(\phi\)</span>-almost every
+<span class="math inline">\(x\in \mathbb P^n\)</span>. The above
+argument shows that item (ii) of Theorem <a data-reference="thm:MMconormale:intro" data-reference-type="ref" href="#thm:MMconormale:intro">[thm:MMconormale:intro]</a>
+holds.</p><p>Given the close relation of the spaces <span class="math inline">\(\mathbb{H}^n\)</span> and <span class="math inline">\(\mathbb{P}^n\)</span>, one could expect that
+either the strategy to prove (<strong>P</strong>) is quite similar in
+the two cases or that the property in the parabolic space can be derived
+from the proof in Heisenberg groups. However, this is far from being
+true and the proof of (<strong>P</strong>) turned out to be extremely
+technical.</p><p>The first step in order to deduce (<strong>P</strong>) is to get some
+weak geometric information on the support of uniform measures. We follow
+the strategy of <span class="citation" data-cites="Preiss1987GeometryDensities">[<a href="#ref-Preiss1987GeometryDensities" role="doc-biblioref">9</a>]</span> and study the so-called
+<em>moments</em> (see Section <a data-reference="section:moments_expansion" data-reference-type="ref" href="#section:moments_expansion">[section:moments_expansion]</a>),
+substituting the scalar product with a suitable polarization of the
+norm. We obtain the following result.</p><div class="theorem">
+<p><span id="theorem:1_codim_unif_measures" label="theorem:1_codim_unif_measures"></span> Let <span class="math inline">\(\nu\)</span> be a <span class="math inline">\(1\)</span>-codimensional uniform measure on <span class="math inline">\(\mathbb{P}^n\)</span>. Then either there are <span class="math inline">\(b\in\mathbb{R}^n\)</span>, <span class="math inline">\(\tau\in\mathbb{R}\)</span>, and a symmetric
+non-zero matrix <span class="math inline">\(\mathcal Q\in
+\mathbb{R}^{n\times n}\)</span> such that <span class="math display">\[\mathrm{supp}(\mu)\subseteq
+\bigl\{x\in\mathbb{P}^n:\langle x_H,\mathcal Q[x_H]+b\rangle+\tau
+x_T=0\bigr\},
+        \label{supportquadratiic}\]</span> or there exists <span class="math inline">\(C(n+1)&gt;0\)</span> such that <span class="math display">\[\begin{split}
+   0=\lim_{s\to 0}&amp;\frac{8
+s^{\frac{3}{2}+\frac{n+1}{4}}}{C(n+1)}\int \lvert z_H\rvert^4 z_H\otimes
+z_H
+                    e^{-s\lVert z\rVert^4}\,d\mu(z)\\
+            &amp;\qquad-\frac{s^{\frac{1}{2}+\frac{n+1}{4}}}{C(n+1)}\int
+(4z_H\otimes z_H+2\lvert z_H\rvert^2\textrm{id}_{n}) e^{-s\lVert
+z\rVert^4}\, d\mu(z). \label{eq:degeneratemeasures}
+  \end{split}\]</span></p>
+</div><p>Theorem <a data-reference="theorem:1_codim_unif_measures" data-reference-type="ref" href="#theorem:1_codim_unif_measures">[theorem:1_codim_unif_measures]</a>
+shows how far the geometry of the parabolic space is from that of <span class="math inline">\(\mathbb R^n\)</span> and <span class="math inline">\(\mathbb H^n\)</span>. Indeed, the solutions of the
+Euclidean and Heisenberg density problems heavily rely on the rigidity
+which follows from the fact that, in those spaces, uniform measures are
+concentrated on the zero set of quadratic polynomials (see <span class="citation" data-cites="MerloG1cod">[<a href="#ref-MerloG1cod" role="doc-biblioref">25</a>]</span> and <span class="citation" data-cites="Preiss1987GeometryDensities">[<a href="#ref-Preiss1987GeometryDensities" role="doc-biblioref">9</a>]</span>). However, we have not been able to
+show any analogue of such result in <span class="math inline">\(\mathbb{P}^n\)</span>.</p><p>This forced our approach to diverge significantly from those
+previously employed. As seen above, in order to prove Theorem <a data-reference="preissprabolicointrovero" data-reference-type="ref" href="#preissprabolicointrovero">[preissprabolicointrovero]</a>
+we just need to show that, inside the set of uniform measures, flat
+measures are weak* disconnected from the non-flat ones. Let <span class="math inline">\(\mathscr{F}\colon
+\mathcal{M}\to\mathbb{R}^+\)</span> be the functional <span class="math display">\[\label{eq:functional_F_intro}
+     \mathscr{F}(\nu)\mathrm{:=}\inf_{u\in\mathbb{S}^{n-1}}
+        \int \lvert z_H\rvert^4\langle z_H,u\rangle^2
+                    e^{-\lVert z\rVert^4}\, d\nu(z).\]</span> A
+relatively standard computation proves that <span class="math inline">\(\mathscr{F}\)</span> disconnects <span class="math inline">\(1\)</span>-codimensional uniform measures
+satisfying <a data-reference="eq:degeneratemeasures" data-reference-type="eqref" href="#eq:degeneratemeasures">[eq:degeneratemeasures]</a> from
+the flat ones (see Proposition <a data-reference="disconnectdegenerated" data-reference-type="ref" href="#disconnectdegenerated">[disconnectdegenerated]</a>). The
+most complex task is then to discuss the geometry of uniform measures
+concentrated on quadrics, which one can show are surface measures
+associated to the quadratic surfaces. Moreover, thanks to a hard-won
+Taylor expansion of the perimeter measure together with some delicate
+algebraic considerations (see Appendix <a data-reference="TYLR" data-reference-type="ref" href="#TYLR">[TYLR]</a> and
+Subsection <a data-reference="sectneq0notexist" data-reference-type="ref" href="#sectneq0notexist">[sectneq0notexist]</a> respectively)
+we also deduce that the quadrics that can support a uniform measure must
+be vertically ruled. Because of this reduction and the coarea-type
+formula in Proposition <a data-reference="prop:reprez" data-reference-type="ref" href="#prop:reprez">[prop:reprez]</a>, we obtain the following
+result.</p><div class="theorem">
+<p><span id="classificazionemisureunif" label="classificazionemisureunif"></span> Let <span class="math inline">\(\mu\)</span> be an <span class="math inline">\((n+1)\)</span>-uniform measure on <span class="math inline">\(\mathbb P^n\)</span>. If <span class="math inline">\(\mu\)</span> is concentrated on a quadric, then
+either <span class="math inline">\(\nu\)</span> is flat or up to
+isometries there exists <span class="math inline">\(c=c(n)&gt;0\)</span>
+such that <span class="math display">\[\mu=c\mathcal{H}^3\llcorner
+\{x_1^2+x^2_2+x_3^2=x^4\}\otimes
+\mathcal{L}^{n-4}\llcorner\mathrm{span}\{e_4,\ldots,e_n\}\otimes
+\mathcal{L}^1\llcorner \mathrm{span}\{e_{n+1}\}.\]</span></p>
+<p>If, on the other hand, <span class="math inline">\(\mu\)</span> is
+not concentrated on a quadratic surface, there exists a constant <span class="math inline">\(\oldep{eps:1}=\oldep{eps:1}(n+1)&gt;0\)</span>
+such that <span class="math display">\[\nonumber
+        \lambda^{\frac{3}{2}+\frac{n+1}{4}}\int \lvert
+z_H\rvert^4\langle z_H,u\rangle^2
+                    e^{-\lambda\lVert z\rVert^4}\,
+d\nu(z)&gt;\oldep{eps:1}\]</span> for any <span class="math inline">\(\nu\in \mathrm{Tan}_{n+1}(\mu,\infty)\)</span>,
+any <span class="math inline">\(\lambda&gt;0\)</span> and any <span class="math inline">\(u\in\mathbb{R}^n\)</span> with <span class="math inline">\(\lvert u\rvert=1\)</span>.</p>
+</div><p>Theorem <a data-reference="classificazionemisureunif" data-reference-type="ref" href="#classificazionemisureunif">[classificazionemisureunif]</a>
+implies property (<strong>P</strong>), concluding the proof of Theorem
+<a data-reference="preissprabolicointrovero" data-reference-type="ref" href="#preissprabolicointrovero">[preissprabolicointrovero]</a>
+and hence of Theorem <a data-reference="theorem:main_theorem_Preiss" data-reference-type="ref" href="#theorem:main_theorem_Preiss">[theorem:main_theorem_Preiss]</a>.
+We also remark that we actually prove an analogue of the second part of
+Theorem <a data-reference="classificazionemisureunif" data-reference-type="ref" href="#classificazionemisureunif">[classificazionemisureunif]</a>
+for uniform measures of arbitrary codimension.</p><p>The above characterisation of uniform measures is the key tool to
+obtain the results outlined in the rest of the introduction, where we
+present some applications to the study of parabolic uniform
+rectifiability.</p><p>A Radon measure <span class="math inline">\(\mu\)</span> on <span class="math inline">\(\mathbb P^n\)</span> is said <span class="math inline">\((n+1)\)</span>-Ahlfors regular, or simply <span class="math inline">\((n+1)\)</span>-Ahlfors-regular, if there exists
+<span class="math inline">\(C&gt;0\)</span> such that <span class="math display">\[C^{-1}r^{n+1}\leq \mu(B(x,r))\leq C
+r^{n+1}\]</span> for all <span class="math inline">\(x\in
+\mathrm{supp}(\mu)\)</span> and <span class="math inline">\(0&lt;r&lt;\mathrm{diam}
+(\mathrm{supp}(\mu)).\)</span> As previously mentioned, Hofmann, Lewis,
+and Nyström proposed a parabolic equivalent of David and Semmes’ notion
+of uniform rectifiability of a set <span class="math inline">\(\Sigma
+\subset \mathbb P^n\)</span>. They formulated it in terms of a Carleson
+condition on the measure <span class="math display">\[d\nu(x,r)=\beta_{2,\sigma_\Sigma}(x,r)\,d\sigma_\Sigma(x)\,r^{-1}dr\]</span>
+on <span class="math inline">\(\mathbb P^n\times \mathbb
+R_{&gt;0}\)</span>, where <span class="math inline">\(\sigma_\Sigma\)</span> is the surface measure on
+<span class="math inline">\(\Sigma\)</span> and <span class="math inline">\(\beta_{2,\sigma_\Sigma}\)</span> are the
+(parabolic) <span class="math inline">\(\beta_{2}\)</span>-numbers which
+quantify the flatness of <span class="math inline">\({\sigma_\Sigma}\)</span>. A crucial role in the
+study of parabolic uniform rectifiability is played by <em>regular
+parabolic Lipschitz functions</em>, namely maps <span class="math inline">\(f\colon \mathbb P^{n-1}\to \mathbb R\)</span>
+which are Lipschitz with respect to the usual <span class="math inline">\(\ell^2\)</span>-norm in the space variables and
+such that <span class="math inline">\(D^{1/2}_Tf\in \mathrm{BMO}(\mathbb
+P^{n-1})\)</span>, where <span class="math inline">\(D_T^{1/2}\)</span>
+stands for the <span class="math inline">\(1/2\)</span>-order derivative
+in the time variable and <span class="math inline">\(\mathrm{BMO}(\mathbb P^{n-1})\)</span> for the
+parabolic version of the space of functions with bounded mean
+oscillation. Furthermore, Hofmann, Lewis, and Nyström proved that a
+parabolic uniformly rectifiable set which is also Reifenberg flat (in a
+parabolic sense) has <em>big pieces of regular parabolic Lipschitz
+graphs</em>. More recently it has been shown in <span class="citation" data-cites="BHHLN2">[<a href="#ref-BHHLN2" role="doc-biblioref">41</a>]</span> and <span class="citation" data-cites="BHHLN3">[<a href="#ref-BHHLN3" role="doc-biblioref">42</a>]</span> that a parabolic <span class="math inline">\((n+1)\)</span>-Ahlfors regular <span class="math inline">\(\Sigma\)</span> is parabolic uniformly
+rectifiabile if and only if it admits a (bilateral) <em>corona
+decomposition</em> with respect to regular parabolic Lipschitz graphs
+or, equivalently, if <span class="math inline">\(\Sigma\)</span> has
+<em>big pieces squared</em> of regular parabolic Lispchitz graphs. For
+the precise definitions and a more in-depth discussion of these results
+we refer to the aforementioned papers.</p><p>Several different characterizations of Euclidean uniform
+rectifiability are available in the literature. For instance, it is well
+known that an <span class="math inline">\(n\)</span>-Ahlfors regular
+measure on <span class="math inline">\(\mathbb R^{n+1}\)</span> is
+uniformly rectifiable if and only if it satisfies the so-called
+<em>bilateral weak geometric lemma</em> (BWGL) (see the monograph <span class="citation" data-cites="DavidSemmes">[<a href="#ref-DavidSemmes" role="doc-biblioref">39</a>]</span>). However, it has been shown in
+<span class="citation" data-cites="BHHLN3">[<a href="#ref-BHHLN3" role="doc-biblioref">42</a>, Observation 4.19]</span> that the BWGL in
+the context of the parabolic space does not imply parabolic uniform
+rectifiability. As an application of our analysis of parabolic uniform
+measures, we prove that the parabolic <em>weak constant density
+condition</em> (WCD) implies the BWGL (see Definitions <a data-reference="def-WCD" data-reference-type="ref" href="#def-WCD">[def-WCD]</a> and <a data-reference="def:BWGL" data-reference-type="ref" href="#def:BWGL">[def:BWGL]</a>
+respectively). The precise definitions involve Jones’ <span class="math inline">\(\beta\)</span>-numbers and the lattice of dyadic
+cubes adapted to a regular measure so, in order not to make the
+introduction too lengthy, we choose to defer them until Section <a data-reference="section:BWGL" data-reference-type="ref" href="#section:BWGL">[section:BWGL]</a>.</p><div class="theorem">
+<p><span id="theorem:WCD_implies_BWGL_2" label="theorem:WCD_implies_BWGL_2"></span> Let <span class="math inline">\(\mu\)</span> be an <span class="math inline">\((n+1)\)</span>-Ahlfors regular measure on <span class="math inline">\(\mathbb P^n\)</span>, and assume that it satisfies
+the weak constant density condition. Then <span class="math inline">\(\mu\)</span> satisfies the bilateral weak
+geometric lemma.</p>
+</div><p>The Euclidean analogue of Theorem <a data-reference="theorem:WCD_implies_BWGL_2" data-reference-type="ref" href="#theorem:WCD_implies_BWGL_2">[theorem:WCD_implies_BWGL_2]</a>
+was first proved by David and Semmes in <span class="citation" data-cites="DavidSemmes">[<a href="#ref-DavidSemmes" role="doc-biblioref">39</a>]</span>. In the parabolic case, it follows
+from Theorem <a data-reference="classificazionemisureunif" data-reference-type="ref" href="#classificazionemisureunif">[classificazionemisureunif]</a>,
+or more precisely from Lemma <a data-reference="lemmaF-&gt;beta" data-reference-type="ref" href="#lemmaF-&gt;beta">[lemmaF-&gt;beta]</a>, together with a
+fine study of the flatness properties of uniform measures in the spirit
+of the arguments of Tolsa in <span class="citation" data-cites="Tolsa_uniform_measures">[<a href="#ref-Tolsa_uniform_measures" role="doc-biblioref">50</a>]</span>.
+We remark that the approach in <span class="citation" data-cites="Tolsa_uniform_measures">[<a href="#ref-Tolsa_uniform_measures" role="doc-biblioref">50</a>]</span>
+uses the Riesz transform to prove that if a uniform measure is far from
+being flat (respectively very flat) inside a cube <span class="math inline">\(Q\)</span> then it is far from being flat
+(respectively very flat) in most of the subcubes of <span class="math inline">\(Q\)</span>. However, in <span class="math inline">\(\mathbb{P}^n\)</span> the Riesz transform is not
+the right operator (compare with Proposition <a data-reference="prop:propaux1_s" data-reference-type="ref" href="#prop:propaux1_s">[prop:propaux1_s]</a>) and in order to
+prove these strong propagation properties of flatness, we need to
+investigate more carefully the geometric structure of uniform measures
+(see Lemma <a data-reference="lemmaangolitangenti" data-reference-type="ref" href="#lemmaangolitangenti">[lemmaangolitangenti]</a>).</p><p>Theorem <a data-reference="theorem:WCD_implies_BWGL_2" data-reference-type="ref" href="#theorem:WCD_implies_BWGL_2">[theorem:WCD_implies_BWGL_2]</a>
+provides a direct link with the upcoming article <span class="citation" data-cites="MMP2">[<a href="#ref-MMP2" role="doc-biblioref">51</a>]</span> in which we exhibit further
+applications of the parabolic Preiss’s theory to the study the parabolic
+analogue of a proper quantitative version of the parabolic density
+problem. Hence, we find it useful to briefly outline some of its
+contents to put the result in a wider context. In <span class="citation" data-cites="MMP2">[<a href="#ref-MMP2" role="doc-biblioref">51</a>]</span> we are interested in establishing
+whether the characterisation given by Chousionis, Garnett, Le, and Tolsa
+of uniform rectifiability in terms of the boundedness of a proper square
+function involving the density given in <span class="citation" data-cites="MR3461027">[<a href="#ref-MR3461027" role="doc-biblioref">52</a>]</span> can be extended to the parabolic
+spaces. In particular, using the results of the present paper, we are
+able to prove the following result.</p><div class="thmx">
+<p><span id="densitythBWGL" label="densitythBWGL"></span> Suppose <span class="math inline">\(\mu\)</span> is an <span class="math inline">\((n+1)\)</span>-Ahlfors-regular measure on <span class="math inline">\(\mathbb{P}^n\)</span> such that <span class="math display">\[\int_{B(y,R)}\int_0^R\Big\lvert\frac{\mu(B(x,r))}{r^{n+1}}-\frac{\mu(B(x,2r))}{2^{n+1}r^{n+1}}\Big\rvert^{2}\,\frac{dr}{r}d\mu(x)\leq
+CR^{n+1} ,\quad \text{    for $\mu$-almost every $y\in\mathbb{P}^n$.}
+      \label{sfe}\]</span> Then <span class="math inline">\(\mu\)</span>
+is <span class="math inline">\(\mathscr{P}_{n+1}\)</span>-rectifiable in
+the sense of Definition <a data-reference="def:PhRectifiableMeasure" data-reference-type="ref" href="#def:PhRectifiableMeasure">[def:PhRectifiableMeasure]</a>
+and it satisfies the WCD. In particular, <span class="math inline">\(\mu\)</span> satisfies the BWGL by Theorem <a data-reference="theorem:WCD_implies_BWGL_2" data-reference-type="ref" href="#theorem:WCD_implies_BWGL_2">[theorem:WCD_implies_BWGL_2]</a>.</p>
+</div><p>Theorem <a data-reference="densitythBWGL" data-reference-type="ref" href="#densitythBWGL">[densitythBWGL]</a> is in line with what
+happens in Euclidean space although, as mentioned above, we cannot push
+the regularity given by the BWGL to parabolic uniform rectifiability.
+The following result, however, highlights profound differences in the
+parabolic setting.</p><div class="thmx">
+<p><span id="counterexamples:intro" label="counterexamples:intro"></span> There exists a <span class="math inline">\(2\)</span>-Ahlfors-regular measure <span class="math inline">\(\mu\)</span> on <span class="math inline">\(\mathbb{P}^1\)</span> such that for any <span class="math inline">\(\varepsilon&gt;0\)</span> there exists a constant
+<span class="math inline">\(C_\varepsilon&gt;0\)</span> such that <span class="math display">\[\int_0^1\Big\lvert\frac{\mu(B(x,r))}{r^{2}}-\frac{\mu(B(x,2r))}{4r^{2}}\Big\rvert^{\frac{1}{2}+\varepsilon}\,\frac{dr}{r}\leq
+C_\varepsilon,\qquad \text{    for $\mu$-almost every $x\in
+\mathbb{P}^n$,}
+        \label{eq:density}\]</span> and for any regular parabolic
+Lipschitz graph <span class="math inline">\(\Gamma\)</span> we have
+<span class="math inline">\(\mu( \Gamma)=0\)</span>.</p>
+</div><p>The idea behind Theorem <a data-reference="counterexamples:intro" data-reference-type="ref" href="#counterexamples:intro">[counterexamples:intro]</a> is to
+construct a parabolic Lipschitz function <span class="math inline">\(f\colon\mathbb{R}\to\mathbb{R}\)</span> such that,
+if <span class="math inline">\(\Gamma\)</span> denotes its graph, then
+<a data-reference="eq:density" data-reference-type="eqref" href="#eq:density">[eq:density]</a> holds for <span class="math inline">\(\mu=\mathcal{H}^2\llcorner \Gamma\)</span> and
+<span class="math display">\[\int_\mathbb{R}\int_\mathbb{R}\frac{\lvert
+f(\tau)-f(\sigma)\rvert^2}{\lvert \tau-\sigma\rvert^2}\,d\tau
+d\sigma=\infty.
+    \label{eq.parabolicpip}\]</span> Our construction is inspired by the
+one of non-differentiable continuous Weierstrass function and the
+techniques used in <span class="citation" data-cites="MatParRect">[<a href="#ref-MatParRect" role="doc-biblioref">45</a>, Example 8.2]</span>,
+and it involves delicate Fourier estimates for the co-Lipschitz constant
+of the function <span class="math inline">\(f\)</span>. In fact, it
+gives much more than <a data-reference="eq.parabolicpip" data-reference-type="eqref" href="#eq.parabolicpip">[eq.parabolicpip]</a>. We finally
+mention that the proof of Theorem <a data-reference="counterexamples:intro" data-reference-type="ref" href="#counterexamples:intro">[counterexamples:intro]</a> also
+requires a computation of the Hausdorff measure of balls centred on
+<span class="math inline">\(\Gamma\)</span>, which we achieve via a
+version of the area formula for parabolic differentiable Lipschitz
+functions which is of interest on it own right (see for instance <span class="citation" data-cites="MR4342997 kirchharea VITTONE">[<a href="#ref-kirchharea" role="doc-biblioref">20</a>, <a href="#ref-MR4342997" role="doc-biblioref">28</a>, <a href="#ref-VITTONE" role="doc-biblioref">53</a>]</span>).</p><h2 class="unnumbered" id="structure-of-the-paper.">Structure of the
+paper.</h2><p><em>Section <a data-reference="section:Preliminaries" data-reference-type="ref" href="#section:Preliminaries">[section:Preliminaries]</a></em>
+collects preliminary facts and known results on general measure theory,
+uniform measures, and parabolic rectifiability. In <em>Section <a data-reference="section:Mastrand" data-reference-type="ref" href="#section:Mastrand">[section:Mastrand]</a></em> we prove
+some additional structural properties of uniform measures. V. Chousionis
+and J. Tyson showed in <span class="citation" data-cites="Chousionis2015MarstrandsGroup">[<a href="#ref-Chousionis2015MarstrandsGroup" role="doc-biblioref">30</a>]</span> that the support of a uniform
+measure on <span class="math inline">\(\mathbb P^n\)</span> is an
+analytic variety, but we actually need more information; an adaptation
+of the techniques of <span class="citation" data-cites="KirchheimPreiss02">[<a href="#ref-KirchheimPreiss02" role="doc-biblioref">54</a>]</span> shows that a uniform measure
+actually coincides, modulo a dimensional factor, with the surface
+measure on its support. We further prove that the tangent measures to a
+uniform measure of codimension <span class="math inline">\(1\)</span>
+are indeed dilation-invariant, and this analysis allows us to conclude
+the section with the classification of uniform measures on <span class="math inline">\(\mathbb P^1\)</span> (see Proposition <a data-reference="uniformmeasuresinP1" data-reference-type="ref" href="#uniformmeasuresinP1">[uniformmeasuresinP1]</a>).</p><p><em>Section <a data-reference="section:MM_rect_theorem" data-reference-type="ref" href="#section:MM_rect_theorem">[section:MM_rect_theorem]</a></em>
+is devoted to the proof of Theorem <a data-reference="thm:MMconormale:intro" data-reference-type="ref" href="#thm:MMconormale:intro">[thm:MMconormale:intro]</a>. In
+<em>Section <a data-reference="section:moments_expansion" data-reference-type="ref" href="#section:moments_expansion">[section:moments_expansion]</a></em>
+we introduce the parabolic version of Preiss’s moments associated with a
+uniform measure on <span class="math inline">\(\mathbb P^n\)</span>.
+This is done in Definition <a data-reference="defimom" data-reference-type="ref" href="#defimom">[defimom]</a> and it involves a polarization of
+Koranyi norm (see Proposition <a data-reference="prop6" data-reference-type="ref" href="#prop6">[prop6]</a>). Although most of the calculations
+mimics those in <span class="citation" data-cites="Preiss1987GeometryDensities">[<a href="#ref-Preiss1987GeometryDensities" role="doc-biblioref">9</a>]</span> and <span class="citation" data-cites="MerloG1cod">[<a href="#ref-MerloG1cod" role="doc-biblioref">25</a>]</span>, this is a pivotal component of the
+proof since it allows to construct a candidate for an algebraic surface
+which contains the support of the uniform measure (see Section <a data-reference="subsection:expansion_moments_candidate_quadric" data-reference-type="ref" href="#subsection:expansion_moments_candidate_quadric">[subsection:expansion_moments_candidate_quadric]</a>).</p><p><em>Section <a data-reference="section:unif_measure_quadratic_surface" data-reference-type="ref" href="#section:unif_measure_quadratic_surface">[section:unif_measure_quadratic_surface]</a></em>
+contains the proof of Theorem <a data-reference="theorem:1_codim_unif_measures" data-reference-type="ref" href="#theorem:1_codim_unif_measures">[theorem:1_codim_unif_measures]</a>:
+we split the class of <span class="math inline">\((n+1)\)</span>-uniform
+measures into “non-degenerate” and “degenerate” measures (see <a data-reference="eq:degenerate" data-reference-type="eqref" href="#eq:degenerate">[eq:degenerate]</a>), prove that the
+first ones are contained in quadratic surfaces (see Proposition <a data-reference="prop:notdeg" data-reference-type="ref" href="#prop:notdeg">[prop:notdeg]</a>), and finally show that
+<a data-reference="eq:degeneratemeasures" data-reference-type="eqref" href="#eq:degeneratemeasures">[eq:degeneratemeasures]</a> and
+<a data-reference="eq:prop47_statement" data-reference-type="eqref" href="#eq:prop47_statement">[eq:prop47_statement]</a> hold for
+the second sub-class. The analysis of non-degenerate <span class="math inline">\(1\)</span>-codimensional uniform measures is
+continued in <em>Section <a data-reference="eq:sec_non_deg_unif_meas" data-reference-type="ref" href="#eq:sec_non_deg_unif_meas">[eq:sec_non_deg_unif_meas]</a></em>,
+where we prove the first part of Theorem <a data-reference="classificazionemisureunif" data-reference-type="ref" href="#classificazionemisureunif">[classificazionemisureunif]</a>.
+Then, in <em>Section <a data-reference="section:proof_main_theorem" data-reference-type="ref" href="#section:proof_main_theorem">[section:proof_main_theorem]</a></em>
+we study the properties of the functional <span class="math inline">\(\mathscr F\)</span> in <a data-reference="eq:functional_F_intro" data-reference-type="eqref" href="#eq:functional_F_intro">[eq:functional_F_intro]</a> and
+conclude the proof of Theorem <a data-reference="theorem:main_theorem_Preiss" data-reference-type="ref" href="#theorem:main_theorem_Preiss">[theorem:main_theorem_Preiss]</a>.</p><p>In <em>Section <a data-reference="section:BWGL" data-reference-type="ref" href="#section:BWGL">[section:BWGL]</a></em> we apply the
+methods described above and prove Theorem <a data-reference="theorem:WCD_implies_BWGL_2" data-reference-type="ref" href="#theorem:WCD_implies_BWGL_2">[theorem:WCD_implies_BWGL_2]</a>.
+The argument is based on a touching-point argument in terms of an
+auxiliary operator defined in <a data-reference="eq:definition_Rrs" data-reference-type="eqref" href="#eq:definition_Rrs">[eq:definition_Rrs]</a> which
+replaces the Riesz transform and allows us to infer the flatness result
+Corollary <a data-reference="corollary:flat_ball_big" data-reference-type="ref" href="#corollary:flat_ball_big">[corollary:flat_ball_big]</a>.
+Moreover, we remark that the solution of the parabolic Preiss’s density
+problem is the key tool used in the form of Lemma <a data-reference="lemmaF-&gt;beta" data-reference-type="ref" href="#lemmaF-&gt;beta">[lemmaF-&gt;beta]</a>, and the proof of
+the BWGL follows from a stopping-time argument along the lines of <span class="citation" data-cites="Tolsa_uniform_measures">[<a href="#ref-Tolsa_uniform_measures" role="doc-biblioref">50</a>]</span>.</p><p><em>Appendix <a data-reference="section:counterexample_PDT" data-reference-type="ref" href="#section:counterexample_PDT">[section:counterexample_PDT]</a></em>
+contains the construction of the graph which proves Theorem <a data-reference="th:failurepreiss" data-reference-type="ref" href="#th:failurepreiss">[th:failurepreiss]</a> and, finally,
+in <em>Appendix <a data-reference="TYLR" data-reference-type="ref" href="#TYLR">[TYLR]</a></em> we adapt the calculations in <span class="citation" data-cites="MerloG1cod">[<a href="#ref-MerloG1cod" role="doc-biblioref">25</a>]</span> in order to study the first three
+non-trivial coefficients of the expansion <a data-reference="eq:expansion_area_formula" data-reference-type="eqref" href="#eq:expansion_area_formula">[eq:expansion_area_formula]</a>
+of the Hausdorff measure on a quadratic surface.</p><h2 class="unnumbered" id="acknowledgements.">Acknowledgements.</h2><p>The authors would like to thank Pertti Mattila for his careful
+reading of the manuscript and for his several comments, which greatly
+helped improving the exposition.</p><div class="references csl-bib-body" id="refs" role="list">
+<div class="csl-entry" id="ref-Federer1996GeometricTheory" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Federer, H.: Geometric measure theory.
+Springer-Verlag New York Inc., New York (1969)</div>
+</div>
+<div class="csl-entry" id="ref-Besicovitch1" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Besicovitch, A.S.: On the fundamental
+geometrical properties of linearly measurable plane sets of points.
+Math. Ann. 98, 422–464 (1928). <a href="https://doi.org/10.1007/BF01451603">https://doi.org/10.1007/BF01451603</a></div>
+</div>
+<div class="csl-entry" id="ref-Besicovitch2" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Besicovitch, A.S.: On the fundamental
+geometrical properties of linearly measurable plane sets of points.
+<span>II</span>. Math. Ann. 115, 296–329 (1938). <a href="https://doi.org/10.1007/BF01448943">https://doi.org/10.1007/BF01448943</a></div>
+</div>
+<div class="csl-entry" id="ref-Besicovitch3" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Besicovitch, A.S.: On the fundamental
+geometrical properties of linearly measurable plane sets of points
+(<span>III</span>). Math. Ann. 116, 349–357 (1939). <a href="https://doi.org/10.1007/BF01597361">https://doi.org/10.1007/BF01597361</a></div>
+</div>
+<div class="csl-entry" id="ref-Mattila1995GeometrySpaces" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Mattila, P.: <a href="https://doi.org/10.1017/CBO9780511623813">Geometry of sets and
+measures in <span>E</span>uclidean spaces</a>. Cambridge University
+Press, Cambridge (1995)</div>
+</div>
+<div class="csl-entry" id="ref-Mattila_survey" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Mattila, P.: Rectifiability: A survey.
+Cambridge University Press (2023)</div>
+</div>
+<div class="csl-entry" id="ref-marstrand" role="listitem">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Marstrand, J.M.: Hausdorff two-dimensional
+measure in <span><span class="math inline">\(3\)</span></span>-space.
+Proc. London Math. Soc. (3). 11, 91–108 (1961). <a href="https://doi.org/10.1112/plms/s3-11.1.91">https://doi.org/10.1112/plms/s3-11.1.91</a></div>
+</div>
+<div class="csl-entry" id="ref-mattila1975" role="listitem">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">Mattila, P.: Hausdorff m regular and
+rectifiable sets in n-space. Trans. Am. Math. Soc. 205, 263–274 (1975).
+<a href="https://doi.org/10.2307/1997203">https://doi.org/10.2307/1997203</a></div>
+</div>
+<div class="csl-entry" id="ref-Preiss1987GeometryDensities" role="listitem">
+<div class="csl-left-margin">9. </div><div class="csl-right-inline">Preiss, D.: Geometry of measures in <span><span class="math inline">\(\mathbb{ R}^n\)</span></span>: Distribution,
+rectifiability, and densities. Ann. of Math. (2). 125, 537–643 (1987).
+<a href="https://doi.org/10.2307/1971410">https://doi.org/10.2307/1971410</a></div>
+</div>
+<div class="csl-entry" id="ref-marstranddensity" role="listitem">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline">Marstrand, J.M.: The <span><span class="math inline">\((\varphi ,\,s)\)</span></span> regular subsets of
+<span><span class="math inline">\(n\)</span></span>-space. Trans. Amer.
+Math. Soc. 113, 369–392 (1964). <a href="https://doi.org/10.2307/1994138">https://doi.org/10.2307/1994138</a></div>
+</div>
+<div class="csl-entry" id="ref-julia_merlo_2023" role="listitem">
+<div class="csl-left-margin">11. </div><div class="csl-right-inline">Julia, A., Merlo, A.: On sets with unit
+hausdorff density in homogeneous groups. Forum of Mathematics, Sigma.
+11, e36 (2023). <a href="https://doi.org/10.1017/fms.2023.31">https://doi.org/10.1017/fms.2023.31</a></div>
+</div>
+<div class="csl-entry" id="ref-DeLellis2008RectifiableMeasures" role="listitem">
+<div class="csl-left-margin">12. </div><div class="csl-right-inline">De
+Lellis, C.: <a href="https://doi.org/10.4171/044">Rectifiable sets,
+densities and tangent measures</a>. European Mathematical Society (EMS),
+Zürich (2008)</div>
+</div>
+<div class="csl-entry" id="ref-KPT" role="listitem">
+<div class="csl-left-margin">13. </div><div class="csl-right-inline">Kenig, C., Preiss, D., Toro, T.: Boundary
+structure and size in terms of interior and exterior harmonic measures
+in higher dimensions. J. Am. Math. Soc. 22, 771–796 (2009). <a href="https://doi.org/10.1090/S0894-0347-08-00601-2">https://doi.org/10.1090/S0894-0347-08-00601-2</a></div>
+</div>
+<div class="csl-entry" id="ref-Badger" role="listitem">
+<div class="csl-left-margin">14. </div><div class="csl-right-inline">Badger, M.: Harmonic polynomials and tangent
+measures of harmonic measure. Rev. Mat. Iberoam. 27, 841–870 (2011). <a href="https://doi.org/10.4171/RMI/654">https://doi.org/10.4171/RMI/654</a></div>
+</div>
+<div class="csl-entry" id="ref-AMT_CPAM" role="listitem">
+<div class="csl-left-margin">15. </div><div class="csl-right-inline">Azzam, J., Mourgoglou, M., Tolsa, X.: Mutual
+absolute continuity of interior and exterior harmonic measure implies
+rectifiability. Commun. Pure Appl. Math. 70, 2121–2163 (2017). <a href="https://doi.org/10.1002/cpa.21687">https://doi.org/10.1002/cpa.21687</a></div>
+</div>
+<div class="csl-entry" id="ref-AMTV" role="listitem">
+<div class="csl-left-margin">16. </div><div class="csl-right-inline">Azzam, J., Mourgoglou, M., Tolsa, X., Volberg,
+A.: On a two-phase problem for harmonic measure in general domains. Am.
+J. Math. 141, 1259–1279 (2019). <a href="https://doi.org/10.1353/ajm.2019.0032">https://doi.org/10.1353/ajm.2019.0032</a></div>
+</div>
+<div class="csl-entry" id="ref-Azzam_Mourgoglou" role="listitem">
+<div class="csl-left-margin">17. </div><div class="csl-right-inline">Azzam, J., Mourgoglou, M.: Tangent measures of
+elliptic measure and applications. Anal. PDE. 12, 1891–1941 (2019). <a href="https://doi.org/10.2140/apde.2019.12.1891">https://doi.org/10.2140/apde.2019.12.1891</a></div>
+</div>
+<div class="csl-entry" id="ref-Ambrosio2000RectifiableSpaces" role="listitem">
+<div class="csl-left-margin">18. </div><div class="csl-right-inline">Ambrosio, L., Kirchheim, B.: Rectifiable sets
+in metric and <span>B</span>anach spaces. Math. Ann. 318, 527–555
+(2000). <a href="https://doi.org/10.1007/s002080000122">https://doi.org/10.1007/s002080000122</a></div>
+</div>
+<div class="csl-entry" id="ref-metriccurrents" role="listitem">
+<div class="csl-left-margin">19. </div><div class="csl-right-inline">Ambrosio, L., Kirchheim, B.: Currents in metric
+spaces. Acta Math. 185, 1–80 (2000). <a href="https://doi.org/10.1007/BF02392711">https://doi.org/10.1007/BF02392711</a></div>
+</div>
+<div class="csl-entry" id="ref-kirchharea" role="listitem">
+<div class="csl-left-margin">20. </div><div class="csl-right-inline">Kirchheim, B.: Rectifiable metric spaces: Local
+structure and regularity of the <span>H</span>ausdorff measure. Proc.
+Amer. Math. Soc. 121, 113–123 (1994). <a href="https://doi.org/10.2307/2160371">https://doi.org/10.2307/2160371</a></div>
+</div>
+<div class="csl-entry" id="ref-cheeger" role="listitem">
+<div class="csl-left-margin">21. </div><div class="csl-right-inline">Cheeger, J.: Differentiability of
+<span>L</span>ipschitz functions on metric measure spaces. Geom. Funct.
+Anal. 9, 428–517 (1999). <a href="https://doi.org/10.1007/s000390050094">https://doi.org/10.1007/s000390050094</a></div>
+</div>
+<div class="csl-entry" id="ref-SerraCassano_notes_2016" role="listitem">
+<div class="csl-left-margin">22. </div><div class="csl-right-inline">Serra Cassano, F.: Some topics of geometric
+measure theory in <span>Carnot</span> groups. In: Geometry, analysis and
+dynamics on sub-riemannian manifolds. Volume i. Lecture notes from the
+IHP trimester, institut henri poincaré, paris, france and from the CIRM
+summer school <span>“sub-riemannian manifolds: From geodesics to
+hypoelliptic diffusion,”</span> luminy, france, fall 2014. pp. 1–121.
+Z<span>ü</span>rich: European Mathematical Society (EMS) (2016)</div>
+</div>
+<div class="csl-entry" id="ref-carnottangenti" role="listitem">
+<div class="csl-left-margin">23. </div><div class="csl-right-inline">Le
+Donne, E.: Metric spaces with unique tangents. Ann. Acad. Sci. Fenn.
+Math. 36, 683–694 (2011). <a href="https://doi.org/10.5186/aasfm.2011.3636">https://doi.org/10.5186/aasfm.2011.3636</a></div>
+</div>
+<div class="csl-entry" id="ref-FSSC01" role="listitem">
+<div class="csl-left-margin">24. </div><div class="csl-right-inline">Franchi, B., Serapioni, R., Serra Cassano, F.:
+Rectifiability and perimeter in the <span>Heisenberg</span> group. Math.
+Ann. 321, 479–531 (2001). <a href="https://doi.org/10.1007/s002080100228">https://doi.org/10.1007/s002080100228</a></div>
+</div>
+<div class="csl-entry" id="ref-MerloG1cod" role="listitem">
+<div class="csl-left-margin">25. </div><div class="csl-right-inline">Merlo, A.: Geometry of 1-codimensional measures
+in <span>H</span>eisenberg groups. Invent. Math. 227, 27–148 (2022). <a href="https://doi.org/10.1007/s00222-021-01063-z">https://doi.org/10.1007/s00222-021-01063-z</a></div>
+</div>
+<div class="csl-entry" id="ref-MerloMM" role="listitem">
+<div class="csl-left-margin">26. </div><div class="csl-right-inline">Merlo, A.: Marstrand-mattila rectifiability
+criterion for 1-codimensional measures in carnot groups</div>
+</div>
+<div class="csl-entry" id="ref-antonelli2022rectifiable" role="listitem">
+<div class="csl-left-margin">27. </div><div class="csl-right-inline">Antonelli, G., Merlo, A.: On rectifiable
+measures in <span>Carnot</span> groups:
+<span>Marstrand</span>-<span>Mattila</span> rectifiability criterion. J.
+Funct. Anal. 283, 62 (2022). <a href="https://doi.org/10.1016/j.jfa.2022.109495">https://doi.org/10.1016/j.jfa.2022.109495</a></div>
+</div>
+<div class="csl-entry" id="ref-MR4342997" role="listitem">
+<div class="csl-left-margin">28. </div><div class="csl-right-inline">Antonelli, G., Merlo, A.: On rectifiable
+measures in <span>C</span>arnot groups: representation. Calc. Var.
+Partial Differential Equations. 61, Paper No. 7, 52 (2022). <a href="https://doi.org/10.1007/s00526-021-02112-4">https://doi.org/10.1007/s00526-021-02112-4</a></div>
+</div>
+<div class="csl-entry" id="ref-MerloAntonelli" role="listitem">
+<div class="csl-left-margin">29. </div><div class="csl-right-inline">Antonelli, G., Merlo, A.: <a href="https://arxiv.org/abs/2009.13941"><span class="nocase">On
+rectifiable measures in Carnot groups: structure theory</span></a>.
+arXiv e-prints. (2020)</div>
+</div>
+<div class="csl-entry" id="ref-Chousionis2015MarstrandsGroup" role="listitem">
+<div class="csl-left-margin">30. </div><div class="csl-right-inline">Chousionis, V., Tyson, J.T.: Marstrand’s
+density theorem in the <span>H</span>eisenberg group. Bull. Lond. Math.
+Soc. 47, 771–788 (2015). <a href="https://doi.org/10.1112/blms/bdv056">https://doi.org/10.1112/blms/bdv056</a></div>
+</div>
+<div class="csl-entry" id="ref-ChousionisONGROUP" role="listitem">
+<div class="csl-left-margin">31. </div><div class="csl-right-inline">Chousionis, V., Magnani, V., Tyson, J.T.: On
+uniform measures in the <span>H</span>eisenberg group. Adv. Math. 363,
+106980, 42 (2020). <a href="https://doi.org/10.1016/j.aim.2020.106980">https://doi.org/10.1016/j.aim.2020.106980</a></div>
+</div>
+<div class="csl-entry" id="ref-zbMATH06521333" role="listitem">
+<div class="csl-left-margin">32. </div><div class="csl-right-inline">Azzam, J., Tolsa, X.: Characterization of
+<span><span class="math inline">\(n\)</span></span>-rectifiability in
+terms of <span>Jones</span>’ square function. <span>II</span>. Geom.
+Funct. Anal. 25, 1371–1412 (2015). <a href="https://doi.org/10.1007/s00039-015-0334-7">https://doi.org/10.1007/s00039-015-0334-7</a></div>
+</div>
+<div class="csl-entry" id="ref-zbMATH06465116" role="listitem">
+<div class="csl-left-margin">33. </div><div class="csl-right-inline">Tolsa, X., Toro, T.: Rectifiability via a
+square function and <span>Preiss</span>’ theorem. Int. Math. Res. Not.
+2015, 4638–4662 (2015). <a href="https://doi.org/10.1093/imrn/rnu082">https://doi.org/10.1093/imrn/rnu082</a></div>
+</div>
+<div class="csl-entry" id="ref-zbMATH06551590" role="listitem">
+<div class="csl-left-margin">34. </div><div class="csl-right-inline">Chousionis, V., Garnett, J., Le, T., Tolsa, X.:
+Square functions and uniform rectifiability. Trans. Am. Math. Soc. 368,
+6063–6102 (2016). <a href="https://doi.org/10.1090/tran/6557">https://doi.org/10.1090/tran/6557</a></div>
+</div>
+<div class="csl-entry" id="ref-zbMATH07269829" role="listitem">
+<div class="csl-left-margin">35. </div><div class="csl-right-inline">Azzam, J., Tolsa, X., Toro, T.:
+Characterization of rectifiable measures in terms of <span><span class="math inline">\(\alpha\)</span></span>-numbers. Trans. Am. Math.
+Soc. 373, 7991–8037 (2020). <a href="https://doi.org/10.1090/tran/8170">https://doi.org/10.1090/tran/8170</a></div>
+</div>
+<div class="csl-entry" id="ref-HLN_AASFM" role="listitem">
+<div class="csl-left-margin">36. </div><div class="csl-right-inline">Hofmann, S., Lewis, J.L., Nyström, K.:
+Existence of big pieces of graphs for parabolic problems. Ann. Acad.
+Sci. Fenn., Math. 28, 355–384 (2003)</div>
+</div>
+<div class="csl-entry" id="ref-HLN_Duke" role="listitem">
+<div class="csl-left-margin">37. </div><div class="csl-right-inline">Hofmann, S., Lewis, J.L., Nyström, K.: Caloric
+measure in parabolic flat domains. Duke Math. J. 122, 281–346 (2004). <a href="https://doi.org/10.1215/S0012-7094-04-12222-5">https://doi.org/10.1215/S0012-7094-04-12222-5</a></div>
+</div>
+<div class="csl-entry" id="ref-DavidSemmes_asterisque" role="listitem">
+<div class="csl-left-margin">38. </div><div class="csl-right-inline">David, G., Semmes, S.: Singular integrals and
+rectifiable sets in <span><span class="math inline">\(R^
+n\)</span></span>. <span>Au</span>-del<span>à</span> des graphes
+lipschitziens. Montrouge: Soci<span>é</span>t<span>é</span>
+Math<span>é</span>matique de France (1991)</div>
+</div>
+<div class="csl-entry" id="ref-DavidSemmes" role="listitem">
+<div class="csl-left-margin">39. </div><div class="csl-right-inline">David, G., Semmes, S.: <a href="https://doi.org/10.1090/surv/038">Analysis of and on uniformly
+rectifiable sets</a>. American Mathematical Society, Providence, RI
+(1993)</div>
+</div>
+<div class="csl-entry" id="ref-BHHLN1" role="listitem">
+<div class="csl-left-margin">40. </div><div class="csl-right-inline">Bortz, S., Hoffman, J., Hofmann, S.,
+Luna-Garcia, J.L., Nyström, K.: On big pieces approximations of
+parabolic hypersurfaces. Ann. Fenn. Math. 47, 533–571 (2022). <a href="https://doi.org/10.54330/afm.115417">https://doi.org/10.54330/afm.115417</a></div>
+</div>
+<div class="csl-entry" id="ref-BHHLN2" role="listitem">
+<div class="csl-left-margin">41. </div><div class="csl-right-inline">Bortz, S., Hoffman, J., Hofmann, S., Garcia,
+J.L.L., Nyström, K.: Corona decompositions for parabolic uniformly
+rectifiable sets, <a href="https://arxiv.org/abs/2103.12497">https://arxiv.org/abs/2103.12497</a>,
+(2021)</div>
+</div>
+<div class="csl-entry" id="ref-BHHLN3" role="listitem">
+<div class="csl-left-margin">42. </div><div class="csl-right-inline">Bortz, S., Hoffman, J., Hofmann, S.,
+Luna-Garcia, J.L., Nyström, K.: Coronizations and big pieces in metric
+spaces. Ann. Inst. Fourier. 72, 2037–2078 (2022). <a href="https://doi.org/10.5802/aif.3518">https://doi.org/10.5802/aif.3518</a></div>
+</div>
+<div class="csl-entry" id="ref-Mourgoglou_Puliatti" role="listitem">
+<div class="csl-left-margin">43. </div><div class="csl-right-inline">Mourgoglou, M., Puliatti, C.: Blow-ups of
+caloric measure in time varying domains and applications to two-phase
+problems. J. Math. Pures Appl. (9). 152, 1–68 (2021). <a href="https://doi.org/10.1016/j.matpur.2021.05.005">https://doi.org/10.1016/j.matpur.2021.05.005</a></div>
+</div>
+<div class="csl-entry" id="ref-Mateu_Prat_Tolsa" role="listitem">
+<div class="csl-left-margin">44. </div><div class="csl-right-inline">Mateu, J., Prat, L., Tolsa, X.: Removable
+singularities for <span>Lipschitz</span> caloric functions in time
+varying domains. Rev. Mat. Iberoam. 38, 547–588 (2022). <a href="https://doi.org/10.4171/RMI/1284">https://doi.org/10.4171/RMI/1284</a></div>
+</div>
+<div class="csl-entry" id="ref-MatParRect" role="listitem">
+<div class="csl-left-margin">45. </div><div class="csl-right-inline">Mattila, P.: Parabolic rectifiability, tangent
+planes and tangent measures. Ann. Fenn. Math. 47, 855–884 (2022). <a href="https://doi.org/10.54330/afm.119821">https://doi.org/10.54330/afm.119821</a></div>
+</div>
+<div class="csl-entry" id="ref-LORENT2003RECTIFIABILITYDENSITY" role="listitem">
+<div class="csl-left-margin">46. </div><div class="csl-right-inline">Lorent, A.: Rectifiability of measures with
+locally uniform cube density. Proc. London Math. Soc. (3). 86, 153–249
+(2003). <a href="https://doi.org/10.1112/S0024611502013710">https://doi.org/10.1112/S0024611502013710</a></div>
+</div>
+<div class="csl-entry" id="ref-Federer_TAMS_1947" role="listitem">
+<div class="csl-left-margin">47. </div><div class="csl-right-inline">Federer, H.: The <span><span class="math inline">\((\Phi,k)\)</span></span> rectifiable subsets of
+<span><span class="math inline">\(n\)</span></span> space. Trans. Am.
+Math. Soc. 62, 114–192 (1947). <a href="https://doi.org/10.2307/1990632">https://doi.org/10.2307/1990632</a></div>
+</div>
+<div class="csl-entry" id="ref-Kowalski1986Besicovitch-typeSubmanifolds" role="listitem">
+<div class="csl-left-margin">48. </div><div class="csl-right-inline">Kowalski, O., Preiss, D.: Besicovitch-type
+properties of measures and submanifolds. J. Reine Angew. Math. 379,
+115–151 (1987)</div>
+</div>
+<div class="csl-entry" id="ref-nimer" role="listitem">
+<div class="csl-left-margin">49. </div><div class="csl-right-inline">Dali Nimer, A.: Conical <span><span class="math inline">\(3\)</span></span>-uniform measures: A family of
+new examples and characterizations. J. Differ. Geom. 121, 57–99 (2022).
+<a href="https://doi.org/10.4310/jdg/1656005496">https://doi.org/10.4310/jdg/1656005496</a></div>
+</div>
+<div class="csl-entry" id="ref-Tolsa_uniform_measures" role="listitem">
+<div class="csl-left-margin">50. </div><div class="csl-right-inline">Tolsa, X.: Uniform measures and uniform
+rectifiability. J. Lond. Math. Soc., II. Ser. 92, 1–18 (2015). <a href="https://doi.org/10.1112/jlms/jdv013">https://doi.org/10.1112/jlms/jdv013</a></div>
+</div>
+<div class="csl-entry" id="ref-MMP2" role="listitem">
+<div class="csl-left-margin">51. </div><div class="csl-right-inline">Merlo, A., Mourgoglou, M., Puliatti, C.:
+Parabolic square function estimates and uniform rectifiability, in
+preparation</div>
+</div>
+<div class="csl-entry" id="ref-MR3461027" role="listitem">
+<div class="csl-left-margin">52. </div><div class="csl-right-inline">Chousionis, V., Garnett, J., Le, T., Tolsa, X.:
+Square functions and uniform rectifiability. Trans. Amer. Math. Soc.
+368, 6063–6102 (2016). <a href="https://doi.org/10.1090/tran/6557">https://doi.org/10.1090/tran/6557</a></div>
+</div>
+<div class="csl-entry" id="ref-VITTONE" role="listitem">
+<div class="csl-left-margin">53. </div><div class="csl-right-inline">Julia, A., Nicolussi Golo, S., Vittone, D.:
+Area of intrinsic graphs and coarea formula in <span>Carnot</span>
+groups. Math. Z. 301, 1369–1406 (2022). <a href="https://doi.org/10.1007/s00209-021-02916-2">https://doi.org/10.1007/s00209-021-02916-2</a></div>
+</div>
+<div class="csl-entry" id="ref-KirchheimPreiss02" role="listitem">
+<div class="csl-left-margin">54. </div><div class="csl-right-inline">Kirchheim, B., Preiss, D.: Uniformly
+distributed measures in <span>E</span>uclidean spaces. Math. Scand. 90,
+152–160 (2002). <a href="https://doi.org/10.7146/math.scand.a-14367">https://doi.org/10.7146/math.scand.a-14367</a></div>
+</div>
+</div><aside class="footnotes footnotes-end-of-document" id="footnotes" role="doc-endnotes">
+<hr/>
+<ol>
+<li id="fn1"><p>Note that the metrics induced by the Koranyi norm (see
+<a data-reference="eq:Korany_metric" data-reference-type="eqref" href="#eq:Korany_metric">[eq:Korany_metric]</a>) and that
+induced by <span class="math inline">\(\lVert\cdot\rVert_\infty\)</span>
+are bi-Lipschitz equivalent.<a class="footnote-back" href="#fnref1" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside><div class="footer">
+<a href="https://arxiv.org/search/math?searchtype=author&amp;query=Merlo%2C+A" target="_blank">Arxiv</a> |
         <a href="https://cvgmt.sns.it/person/2880/" target="_blank">CVGMT</a> |
         <a href="https://www.researchgate.net/profile/Andrea-Merlo-4" target="_blank">ResearchGate</a> |
+<a href="https://scholar.google.it/citations?user=ZqlhfRkAAAAJ&amp;hl=it" target="_blank">Google Scholar</a> |
         <a href="your_cv.pdf" target="_blank">Download CV</a>
-    </div>
-
-    <!-- Bootstrap and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-
+</div>
+<!-- Bootstrap and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</div></body>
 </html>
-
